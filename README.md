@@ -2,9 +2,17 @@
 
 ## What it does?
 
-This plugin automates my [solid-image package](https://www.npmjs.com/package/solid-image) for vite.
+This plugin automates my [solid-image](https://www.npmjs.com/package/solid-image) package for vite.
 
 ## Example
+
+- this plugin only looks for `.jsx, tsx` files in the `src` folder.
+- **Image Location**
+  - currently only the public folder is supported.
+    - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
+- **URL restrictions**
+  - the url can only be in string format.
+    - `public/phone/phone.png?w=20;120&f=avif;webp`
 
 **vite.config.ts**
 
@@ -36,38 +44,15 @@ export default function Pic() {
 }
 ```
 
-- this plugin only looks for `.jsx, tsx` files in the `src` folder.
-
 ### Comments
 
 - `{/* { createImages(...) } */}` // will not be processed.
 - it's better to remove dead code to avoid problems.
-
-### Image Location
-
-- currently only the public folder is supported.
-  - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
-
-### URL restrictions
-
-- the url can only be in string format.
-  - `public/phone/phone.png?w=20;120&f=avif;webp`
-
-```tsx
-<Image src={'/public/phone/phone.png?w=50;100;150&f=avif'} />
-// for Art direction use Array
-<Image
-  src={[
-    '/public/phone/phone.png?w=50;100;150&f=avif;webp',
-    '/public/phone/phone.png?w=50;100;150&f=avif;webp',
-    '/public/phone/phone.png?w=50;100;150&f=avif;webp',
-  ]}
-/>
-```
 
 # URL Options
 
 - see: <https://github.com/webmastersmith/solid-image#url-options>
 - progressBar and output to console.log are turned off by default.
   - to turn on:
-    - `progressBar=true&print=true`
+    - `progressBar=true`
+    - `print=true`
