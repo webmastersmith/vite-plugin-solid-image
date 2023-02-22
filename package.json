@@ -4,6 +4,7 @@
   "description": "Use Vite and the Sharp Image Library to quickly create images and HTML code",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
+  "homepage": "https://github.com/webmastersmith/vite-plugin-solid-image#readme",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

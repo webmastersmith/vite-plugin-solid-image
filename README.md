@@ -1,10 +1,8 @@
 # vite-plugin-solid-image
 
-# This plugin is under construction and not yet working.
-
 ## What it does?
 
-This plugin automates my `solid-image` package for vite. I built this for plugin for solid-start framework.
+This plugin automates my [solid-image package](https://www.npmjs.com/package/solid-image) for vite.
 
 ## Example
 
@@ -29,49 +27,40 @@ export default function Pic() {
     <>
       <h1 class={styles.pic}>Pic Component</h1>
       {createImages([
-        'src/components/Pic/phone.png?w=20;120&f=avif;webp&progressBar=false&print=false&media=(min-width: 1px)',
-        'src/components/Pic/phone.png?w=25;125&f=avif;webp&progressBar=false&print=false&media=(min-width: 1px)',
-        'src/components/Pic/phone.png?w=55;155&f=avif;webp&progressBar=false&print=false&media=(min-width: 1px)',
+        '/public/phone/phone.png/phone.png?w=120&f=avif;webp&media=(max-width: 500px)',
+        '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
+        '/public/phone/phone.png/phone.png?w=155&f=avif;webp&media=(min-width: 1001px)',
       ])}
     </>
   );
 }
 ```
 
-### Folder Structure
-
-```txt
-- root
-  - src
-    - components
-    - routes
-    - ...
-```
-
-- this plugin only look for `.jsx, tsx` files in the `src` folder.
+- this plugin only looks for `.jsx, tsx` files in the `src` folder.
 
 ### Comments
 
 - `{/* { createImages(...) } */}` // will not be processed.
+- it's better to remove dead code to avoid problems.
+
+### Image Location
+
+- currently only the public folder is supported.
+  - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
 
 ### URL restrictions
 
 - the url can only be in string format.
-  - `'src/components/Pic/phone.png?w=20;120&f=avif;webp`
-- image paths must be relative to root.
-- **src folder**
-  - `src/yourFolderPath/imageName.jpg`
-- **public folder**
-  - `public/yourFolderPath/imageName.jpg`
+  - `public/phone/phone.png?w=20;120&f=avif;webp`
 
 ```tsx
-<Image src={'src/components/Pic/phone.png?w=50;100;150&f=avif&progressBar=false'} />
-// or
+<Image src={'/public/phone/phone.png?w=50;100;150&f=avif'} />
+// for Art direction use Array
 <Image
   src={[
-    'src/components/Pic/phone.png?w=50;100;150&f=avif;webp&progressBar=false',
-    'src/components/Pic/phone.png?w=50;100;150&f=avif;webp&progressBar=false',
-    'src/components/Pic/phone.png?w=50;100;150&f=avif;webp&progressBar=false',
+    '/public/phone/phone.png?w=50;100;150&f=avif;webp',
+    '/public/phone/phone.png?w=50;100;150&f=avif;webp',
+    '/public/phone/phone.png?w=50;100;150&f=avif;webp',
   ]}
 />
 ```
