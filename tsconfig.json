@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // output code compiles to.
+    "allowJs": true,
+    "module": "ESNext", // how import/export statements are resolved.
+    "moduleResolution": "nodenext", // are files formats ts, tsx? 
+    "lib": ["ESNext"], // what libraries to have access to: Math, regex...
+    "declaration": true, // typescript
+    "declarationDir": "./lib/types", // folder to put types in.
+    "jsx": "preserve",
+    "outDir": "./lib", // build directory
+    "removeComments": true,
+    "esModuleInterop": true, // allow for esm and cjs libraries.
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

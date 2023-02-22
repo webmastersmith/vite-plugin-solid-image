@@ -1,0 +1,29 @@
+{
+  "name": "vite-plugin-solid-image",
+  "version": "0.0.1",
+  "description": "\"Use Vite and the Sharp Image Library to quickly create images and HTML code\"",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -fr lib/* && tsc",
+    "prepub": "npm run build",
+    "pub": "npm version patch --no-git-tag-version && npm publish",
+    "dry": "npm publish --dry-run"
+  },
+  "keywords": [
+    "vite",
+    "image",
+    "solidjs",
+    "solid-start"
+  ],
+  "author": "Bryon Smith",
+  "license": "MIT",
+  "dependencies": {
+    "node-html-parser": "^6.1.5",
+    "solid-image": "^0.0.19"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.0"
+  }
+}
