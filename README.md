@@ -1,5 +1,7 @@
 # vite-plugin-solid-image
 
+# This plugin is under construction and not yet working.
+
 ## What it does?
 
 This plugin automates my `solid-image` package for vite. I built this for plugin for solid-start framework.
