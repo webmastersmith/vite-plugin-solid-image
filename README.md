@@ -21,7 +21,7 @@ This plugin automates my [solid-image](https://www.npmjs.com/package/solid-image
       - `print=true`
 - **Comments**
   - it's better to remove dead code to avoid problems.
-  - `{/* { Images(...) } */}` // will not be processed.
+  - `{/* { createImages(...) } */}` // will not be processed.
 
 **vite.config.ts**
 
@@ -37,16 +37,16 @@ export default defineConfig({
 **YourFile.tsx**
 
 ```tsx
-import Images from 'vite-plugin-solid-image';
+import createImages from 'vite-plugin-solid-image';
 
 export default function MyComponent() {
   return (
     <>
       <h1>MyComponent</h1>
-      {Images('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
+      {createImages('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
 
       <p>Another Example -Art Direction</p>
-      {Images([
+      {createImages([
         '/public/phone/phone.png/phone.png?w=120&f=avif;webp&media=(max-width: 500px)',
         '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
         '/public/phone/phone.png/phone.png?w=155&f=avif;webp&media=(min-width: 1001px)',
