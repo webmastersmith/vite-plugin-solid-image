@@ -69,12 +69,17 @@ async function parseFile(id: string) {
         });
         // console.log('urlFix', urlFix);
 
-        const img = await createImages(urlFix);
+        let img = '<p>Something went wrong. Check console.log for error.</p>';
+        try {
+          img = await createImages(urlFix);
+        } catch (error) {
+          console.log('createImage Error: ', error);
+        }
         // console.log('return createImages', img);
         file = front + `\n${img}\n` + back;
         // reduce count
         count--;
-      }
+      } // end while
       file = file.replaceAll(solidImageRegex, '');
       // console.log(file);
       return file;

@@ -11,7 +11,8 @@ The **Image** function is never called. It is simply a placeholder, so regex can
 
 The first time you run the code, the images will be created. This process can take a few seconds, up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait until the images are created, and reload the page to refresh.
 
-If you would like feedback during image creation, add `progressBar=true` to your argument. After image creation, you can delete this. ex.. `public/phone.png?w=20&f=avif&progressBar=true`
+If you would like feedback during image creation, add `progressBar=true` to your argument. After image creation, you can delete this.
+ex.. `public/phone.png?w=20&f=avif&progressBar=true`
 
 ## Install
 
