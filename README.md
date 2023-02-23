@@ -3,11 +3,11 @@
 ## What it does?
 
 This plugin automates my [solid-image](https://www.npmjs.com/package/solid-image) package for vite.
-The final output code replaces all `Image` functions with `img` or `picture` elements. There is no trace of `solid-image` after `dev` or `prod` build.
+The final output code replaces all `Images` functions with `img` or `picture` elements. There is no trace of `solid-image` after `dev` or `prod` build.
 
 ## How does it work?
 
-The **Image** function is never called. It is simply a placeholder, so regex can find it and extract the arguments, then replace the **Image** function with the `img` or `picture` element. Because this process is static, dynamic code will not work. **You cannot use variables as arguments in the Image function.**
+The **Images** function is never called. It is simply a placeholder, so regex can find it and extract the arguments, then replace the **Images** function with the `img` or `picture` element. Because this process is static, dynamic code will not work. **You cannot use variables as arguments in the Images function.**
 
 The first time you run the code, the images will be created. This process can take a few seconds, up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait until the images are created, and reload the page to refresh.
 
@@ -20,7 +20,7 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
 
 ## Folder, File and Argument Naming
 
-- allowed characters -no spaces in **folder, file and Image argument** names.
+- allowed characters -no spaces in **folder, file and Images argument** names.
 - `- _ a-z A-Z 0-9 : ; , = \ / & ? .`
 
 ## Example
@@ -40,7 +40,7 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
       - `print=true`
 - **Comments**
   - `{/* {Images(...)} */}` // will not be processed.
-    - because regex is used to locate the **Image** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
+    - because regex is used to locate the **Images** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
 
 **vite.config.ts**
 
@@ -73,6 +73,22 @@ export default function MyComponent() {
     </>
   );
 }
+```
+
+## Problems
+
+<img src="images/images-not-defined.png" alt="Images is not defined" width="800px" >
+- if you get this error, it is because the regex missed your **Images** function. Make sure it has the same spacing as the example 👇.
+
+<!-- prettier-ignore -->
+```tsx
+// single url
+{Images('/public/phone.png...')}
+// Art Direction
+{Images([
+  '/public/phone.png...',
+  '/public/phone-full.png...',
+])}
 ```
 
 ## License

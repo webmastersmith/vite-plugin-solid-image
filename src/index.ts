@@ -1,7 +1,9 @@
 import { createImages } from 'solid-image';
 import path from 'node:path';
 import fs from 'fs';
-export default function Images(props: string | string[]) {}
+export default function Images(props: string | string[]) {
+  return 'Your code was not found by the regex. Make sure it has the same spacing as the example: {Images(...)}';
+}
 
 export function solidImage() {
   return {
