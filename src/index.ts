@@ -18,7 +18,7 @@ export function solidImage() {
 
 async function parseFile(id: string) {
   // only js, jsx, ts, tsx files
-  if (/[jt]sx$/i.test(id)) {
+  if (/\.[jt]sx$/i.test(id)) {
     // file is (tj)sx read it for 'Image'
     let file = fs.readFileSync(id, 'utf-8');
 

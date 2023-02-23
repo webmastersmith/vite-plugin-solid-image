@@ -3,6 +3,11 @@
 ## What it does?
 
 This plugin automates my [solid-image](https://www.npmjs.com/package/solid-image) package for vite.
+The final output code replaces all `Image` functions with `img | picture` elements. There is no trace of `solid-image` after `dev|prod` build.
+
+## Install
+
+- `npm i -D vite-plugin-solid-image`
 
 ## Example
 
@@ -55,3 +60,7 @@ export default function MyComponent() {
   );
 }
 ```
+
+## License
+
+Published under the MIT licence. © Bryon Smith 2023.
