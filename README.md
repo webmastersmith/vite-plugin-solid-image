@@ -9,6 +9,11 @@ The final output code replaces all `Image` functions with `img | picture` elemen
 
 - `npm i -D vite-plugin-solid-image`
 
+## Folder File Naming
+
+- allowed characters -no spaces in **folder or file** names.
+- `- _ a-z A-Z 0-9 : ; , = \ / & ? .`
+
 ## Example
 
 - this plugin only looks for `.jsx, .tsx` files in the `src` folder.
