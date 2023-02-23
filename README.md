@@ -77,9 +77,9 @@ export default function MyComponent() {
 
 ## Problems
 
-![images-not-defined.png](https://github.com/webmastersmith/vite-plugin-solid-image/blob/main/images/images-not-defined.png)
+![images not defined](https://github.com/webmastersmith/vite-plugin-solid-image/blob/main/images/images-not-defined.png)
 
-- if you get this error, it is because the regex missed your **Images** function. Make sure it has the same spacing as the example 👆.
+- if you get this error, it is because the regex missed your **Images** function. Make sure it has the **same spacing** as the example 👆.
 
 ## License
 

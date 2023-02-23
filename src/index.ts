@@ -1,9 +1,7 @@
 import { createImages } from 'solid-image';
 import path from 'node:path';
 import fs from 'fs';
-export default function Images(props: string | string[]) {
-  return 'Your code was not found by the regex. Make sure it has the same spacing as the example: {Images(...)}';
-}
+export default function Images(props: string | string[]) {}
 
 export function solidImage() {
   return {
@@ -30,7 +28,7 @@ async function parseFile(id: string) {
     if (solidImageRegex.test(file)) {
       // console.log(file);
       // lookbehind to ignore commented out code.
-      const createImagesRegex = new RegExp(/(?<!\{\/\*.?){Images(.*?)}/is);
+      const createImagesRegex = new RegExp(/(?<!\{\/\*.?){\s*?Images(.*?)\s*?}/is);
       // console.log(createImagesRegex);
       // prevent runaway loop
       let count = 300;
