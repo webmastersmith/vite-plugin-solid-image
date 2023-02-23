@@ -28,7 +28,7 @@ async function parseFile(id: string) {
     if (solidImageRegex.test(file)) {
       // console.log(file);
       // lookbehind to ignore commented out code.
-      const createImagesRegex = new RegExp(/(?<!\{\/\*.?){\s*?Images(.*?)\s*?}/is);
+      const createImagesRegex = new RegExp(/(?<!\{\/\*\s*?){\s*?Images(.*?)\s*?}/is);
       // console.log(createImagesRegex);
       // prevent runaway loop
       let count = 300;
