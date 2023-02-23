@@ -11,6 +11,8 @@ The **Image** function is never called. It is simply a placeholder, so regex can
 
 The first time you run the code, the images will be created. This process can take a few seconds, up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait until the images are created, and reload the page to refresh.
 
+If you would like feedback during image creation, add `progressBar=true` to your argument. After image creation, you can delete this. ex.. `public/phone.png?w=20&f=avif&progressBar=true`
+
 ## Install
 
 - `npm i -D vite-plugin-solid-image`
@@ -28,7 +30,7 @@ The first time you run the code, the images will be created. This process can ta
     - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
 - **URL restrictions**
   - the url can only be in string format.
-    - `public/phone/phone.png?w=20;120&f=avif;webp`
+    - ex.. `public/phone/phone.png?w=20;120&f=avif;webp`
 - **URL Options**
   - see: [solid-image#url-options](https://github.com/webmastersmith/solid-image#url-options)
   - **progressBar** and **print to console.log** are turned **off** by default.
@@ -36,7 +38,7 @@ The first time you run the code, the images will be created. This process can ta
       - `progressBar=true`
       - `print=true`
 - **Comments**
-  - `{/* { Images(...) } */}` // will not be processed.
+  - `{/* {Images(...)} */}` // will not be processed.
     - because regex is used to locate the **Image** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
 
 **vite.config.ts**
@@ -67,11 +69,11 @@ export default function MyComponent() {
         '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
         '/public/phone/phone.png/phone.png?w=155&f=avif;webp&media=(min-width: 1001px)',
       ])}
-    </!>
+    </>
   );
 }
 ```
 
 ## License
 
-Published under the MIT licence. © Bryon Smith 2023.
+Published under the MIT license. © Bryon Smith 2023.
