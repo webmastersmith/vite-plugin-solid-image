@@ -79,18 +79,7 @@ export default function MyComponent() {
 
 ![images-not-defined.png](https://github.com/webmastersmith/vite-plugin-solid-image/blob/main/images/images-not-defined.png)
 
-- if you get this error, it is because the regex missed your **Images** function. Make sure it has the same spacing as the example 👇.
-
-<!-- prettier-ignore -->
-```tsx
-// single url
-{Images('/public/phone.png...')}
-// Art Direction
-{Images([
-  '/public/phone.png...',
-  '/public/phone-full.png...',
-])}
-```
+- if you get this error, it is because the regex missed your **Images** function. Make sure it has the same spacing as the example 👆.
 
 ## License
 
