@@ -37,7 +37,7 @@ The first time you run the code, the images will be created. This process can ta
       - `print=true`
 - **Comments**
   - `{/* { Images(...) } */}` // will not be processed.
-    - because regex is used to locate the **Image** function, it may still 'find' the code if it doesn't look exactly like the example. Better to remove dead code and avoid problems.
+    - because regex is used to locate the **Image** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
 
 **vite.config.ts**
 
@@ -56,7 +56,6 @@ export default defineConfig({
 import Images from 'vite-plugin-solid-image';
 
 export default function MyComponent() {
-  const myVar = '/public/phone/phone.png/phone.png?w=120&...' // this will not work. Dynamic code inside the 'Image' function does not work.
   return (
     <>
       <h1>MyComponent</h1>
