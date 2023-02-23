@@ -3,11 +3,11 @@
 ## What it does?
 
 This plugin automates my [solid-image](https://www.npmjs.com/package/solid-image) package for vite.
-The final output code replaces all `Image` functions with `img | picture` elements. There is no trace of `solid-image` after `dev|prod` build.
+The final output code replaces all `Image` functions with `img` or `picture` elements. There is no trace of `solid-image` after `dev` or `prod` build.
 
 ## How does it work?
 
-The **Image** function is never called. It is simply a placeholder, so regex can find it and extract the arguments, then replaces the **Image** function with the `img` or `picture` element. Because this process is static, dynamic code will not work. **You cannot use variables as arguments in the Image function.**
+The **Image** function is never called. It is simply a placeholder, so regex can find it and extract the arguments, then replace the **Image** function with the `img` or `picture` element. Because this process is static, dynamic code will not work. **You cannot use variables as arguments in the Image function.**
 
 The first time you run the code, the images will be created. This process can take a few seconds, up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait until the images are created, and reload the page to refresh.
 
@@ -15,14 +15,14 @@ The first time you run the code, the images will be created. This process can ta
 
 - `npm i -D vite-plugin-solid-image`
 
-## Folder or File Naming
+## Folder, File and Argument Naming
 
-- allowed characters -no spaces in **folder or file** names.
+- allowed characters -no spaces in **folder, file and Image argument** names.
 - `- _ a-z A-Z 0-9 : ; , = \ / & ? .`
 
 ## Example
 
-- this plugin only looks for `.jsx` or `.tsx` files in the `src` folder.
+- This plugin only looks for `.jsx` or `.tsx` files in the `src` folder.
 - **Image Location**
   - currently **only the public folder is supported**.
     - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
@@ -31,7 +31,7 @@ The first time you run the code, the images will be created. This process can ta
     - `public/phone/phone.png?w=20;120&f=avif;webp`
 - **URL Options**
   - see: [solid-image#url-options](https://github.com/webmastersmith/solid-image#url-options)
-  - **progressBar** and **print to console.log** are turned off by default.
+  - **progressBar** and **print to console.log** are turned **off** by default.
     - to turn on:
       - `progressBar=true`
       - `print=true`
