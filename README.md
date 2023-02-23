@@ -25,7 +25,7 @@ The final output code replaces all `Image` functions with `img | picture` elemen
     - `public/phone/phone.png?w=20;120&f=avif;webp`
 - **URL Options**
   - see: [solid-image#url-options](https://github.com/webmastersmith/solid-image#url-options)
-  - progressBar and print to console.log are turned off by default.
+  - **progressBar** and **print to console.log** are turned off by default.
     - to turn on:
       - `progressBar=true`
       - `print=true`
