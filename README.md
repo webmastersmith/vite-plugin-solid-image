@@ -77,7 +77,8 @@ export default function MyComponent() {
 
 ## Problems
 
-<img src="images/images-not-defined.png" alt="Images is not defined" width="800px" >
+![images-not-defined.png](https://github.com/webmastersmith/vite-plugin-solid-image/blob/main/images/images-not-defined.png)
+
 - if you get this error, it is because the regex missed your **Images** function. Make sure it has the same spacing as the example 👇.
 
 <!-- prettier-ignore -->
