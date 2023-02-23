@@ -1,7 +1,7 @@
-import { createImages as Images } from 'solid-image';
+import { createImages } from 'solid-image';
 import path from 'node:path';
 import fs from 'fs';
-export default Images;
+export default function Images(props: string | string[]) {}
 
 export function solidImage() {
   return {
@@ -23,12 +23,12 @@ async function parseFile(id: string) {
     let file = fs.readFileSync(id, 'utf-8');
 
     // look for this pattern.
-    let solidImageRegex = new RegExp('import .*?createImages.*', 'ig');
+    let solidImageRegex = new RegExp('import Images from .vite-plugin-solid-image..?', 'ig');
     // check if 'import solid-image' is in file.
     if (solidImageRegex.test(file)) {
       // console.log(file);
       // lookbehind to ignore commented out code.
-      const createImagesRegex = new RegExp(/(?<!\{\/\*.?){createImages(.*?)}/is);
+      const createImagesRegex = new RegExp(/(?<!\{\/\*.?){Images(.*?)}/is);
       // console.log(createImagesRegex);
       // prevent runaway loop
       let count = 300;
@@ -69,7 +69,7 @@ async function parseFile(id: string) {
         });
         // console.log('urlFix', urlFix);
 
-        const img = await Images(urlFix);
+        const img = await createImages(urlFix);
         // console.log('return createImages', img);
         file = front + `\n${img}\n` + back;
         // reduce count
