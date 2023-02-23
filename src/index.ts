@@ -17,14 +17,14 @@ export function solidImage() {
 }
 
 async function parseFile(id: string) {
-  // only js, jsx, ts, tsx files
+  // only .jsx, .tsx files allowed.
   if (/\.[jt]sx$/i.test(id)) {
     // file is (tj)sx read it for 'Image'
     let file = fs.readFileSync(id, 'utf-8');
 
     // look for this pattern.
     let solidImageRegex = new RegExp('import Images from .vite-plugin-solid-image..?', 'ig');
-    // check if 'import solid-image' is in file.
+    // check if 'import Images from  'vite-plugin-solid-image'; exist.
     if (solidImageRegex.test(file)) {
       // console.log(file);
       // lookbehind to ignore commented out code.
@@ -75,11 +75,11 @@ async function parseFile(id: string) {
         } catch (error) {
           console.log('createImage Error: ', error);
         }
-        // console.log('return createImages', img);
+
         file = front + `\n${img}\n` + back;
         // reduce count
         count--;
-      } // end while
+      } // end while loop
       file = file.replaceAll(solidImageRegex, '');
       // console.log(file);
       return file;
