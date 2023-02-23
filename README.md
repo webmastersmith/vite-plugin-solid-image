@@ -37,7 +37,7 @@ export default defineConfig({
 **YourFile.tsx**
 
 ```tsx
-import { createImages } from 'solid-image';
+import createImages from 'vite-plugin-solid-image';
 
 export default function MyComponent() {
   return (
@@ -45,7 +45,7 @@ export default function MyComponent() {
       <h1>MyComponent</h1>
       {createImages('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
 
-      <p>Another Example</p>
+      <p>Another Example -Art Direction</p>
       {createImages([
         '/public/phone/phone.png/phone.png?w=120&f=avif;webp&media=(max-width: 500px)',
         '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
