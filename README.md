@@ -5,6 +5,12 @@
 This plugin automates my [solid-image](https://www.npmjs.com/package/solid-image) package for vite.
 The final output code replaces all `Image` functions with `img | picture` elements. There is no trace of `solid-image` after `dev|prod` build.
 
+## How does it work?
+
+The **Image** function is never called. It is simply a placeholder, so regex can find it and extract the arguments, then replaces the **Image** function with the `img` or `picture` element. Because this process is static, dynamic code will not work. **You cannot use variables as arguments in the Image function.**
+
+The first time you run the code, the images will be created. This process can take a few seconds up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait till the images are created, and reload the page to refresh.
+
 ## Install
 
 - `npm i -D vite-plugin-solid-image`
@@ -50,6 +56,7 @@ export default defineConfig({
 import Images from 'vite-plugin-solid-image';
 
 export default function MyComponent() {
+  const myVar = '/public/phone/phone.png/phone.png?w=120&...' // this will not work. Dynamic code inside the 'Image' function does not work.
   return (
     <>
       <h1>MyComponent</h1>
@@ -61,7 +68,7 @@ export default function MyComponent() {
         '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
         '/public/phone/phone.png/phone.png?w=155&f=avif;webp&media=(min-width: 1001px)',
       ])}
-    </>
+    </!>
   );
 }
 ```
