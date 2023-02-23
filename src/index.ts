@@ -1,7 +1,7 @@
-import { createImages } from 'solid-image';
+import { createImages as Images } from 'solid-image';
 import path from 'node:path';
 import fs from 'fs';
-export default createImages;
+export default Images;
 
 export function solidImage() {
   return {
@@ -69,7 +69,7 @@ async function parseFile(id: string) {
         });
         // console.log('urlFix', urlFix);
 
-        const img = await createImages(urlFix);
+        const img = await Images(urlFix);
         // console.log('return createImages', img);
         file = front + `\n${img}\n` + back;
         // reduce count
