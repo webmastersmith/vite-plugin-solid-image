@@ -9,22 +9,22 @@ The final output code replaces all `Image` functions with `img | picture` elemen
 
 The **Image** function is never called. It is simply a placeholder, so regex can find it and extract the arguments, then replaces the **Image** function with the `img` or `picture` element. Because this process is static, dynamic code will not work. **You cannot use variables as arguments in the Image function.**
 
-The first time you run the code, the images will be created. This process can take a few seconds up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait till the images are created, and reload the page to refresh.
+The first time you run the code, the images will be created. This process can take a few seconds, up to a few minutes, depending on how many images your creating. During the creation phase, the images may appear broken. Wait until the images are created, and reload the page to refresh.
 
 ## Install
 
 - `npm i -D vite-plugin-solid-image`
 
-## Folder File Naming
+## Folder or File Naming
 
 - allowed characters -no spaces in **folder or file** names.
 - `- _ a-z A-Z 0-9 : ; , = \ / & ? .`
 
 ## Example
 
-- this plugin only looks for `.jsx, .tsx` files in the `src` folder.
+- this plugin only looks for `.jsx` or `.tsx` files in the `src` folder.
 - **Image Location**
-  - currently only the public folder is supported.
+  - currently **only the public folder is supported**.
     - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
 - **URL restrictions**
   - the url can only be in string format.
@@ -36,8 +36,8 @@ The first time you run the code, the images will be created. This process can ta
       - `progressBar=true`
       - `print=true`
 - **Comments**
-  - it's better to remove dead code to avoid problems.
   - `{/* { Images(...) } */}` // will not be processed.
+    - because regex is used to locate the **Image** function, it may still 'find' the code if it doesn't look exactly like the example. Better to remove dead code and avoid problems.
 
 **vite.config.ts**
 
