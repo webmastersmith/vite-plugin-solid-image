@@ -9,7 +9,7 @@ export function solidImage() {
     async load(id: string) {
       const basePath = path.join(process.cwd(), 'src');
       if (id.includes(basePath)) {
-        return parseFile(id);
+        return await parseFile(id);
       }
       return;
     },
