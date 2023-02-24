@@ -114,7 +114,7 @@ export default function MyComponent() {
         &sizes=250px
         &media=(min-width: 1000px) 25vw`,
       ])}
-    </p>
+    </>
   );
 }
 ```
