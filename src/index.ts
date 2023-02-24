@@ -44,10 +44,11 @@ async function parseFile(id: string) {
         // console.log('back', back);
         // normalize urls, remove blank strings.
         const url = imageMatch[1]
-          .replaceAll(/[^-_a-zA-Z0-9:;,=\/&?.]/gi, '')
+          .replaceAll(/[^-_a-zA-Z0-9:;,=\\/&?. ]/gi, '')
           .split(',')
           .reduce((a: string[], b: string) => {
             // remove empty strings.
+            b = b.trim();
             if (b) {
               a.push(b);
             }
