@@ -67,10 +67,11 @@ export default function MyComponent() {
     <>
       <h1>MyComponent</h1>
       {Images('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
+
       <p>Multi Line Example with Template Strings</p>
-      {/* Don't accidentally add comma to end of line  */}
+      <p>Don't accidentally add a comma to end of line</p>
+      <p>The '?' must be on same line as image path.</p>
       {Images(
-        // the '?' must be on same line as image path.
         `public/phone/phone.png?
         w=50;100;150
         &f=avif
@@ -86,7 +87,7 @@ export default function MyComponent() {
         '/public/phone/phone.png/phone.png?w=155&f=avif;webp&media=(min-width: 1001px)',
       ])}
 
-      {/*  or with template strings */}
+      <p>Art Direction with template strings</p>
       {Images([
         `/public/phone/phone.png?
         w=500;1000
@@ -112,7 +113,7 @@ export default function MyComponent() {
         &sizes=250px
         &media=(min-width: 1000px) 25vw`,
       ])}
-    </>
+    </p>
   );
 }
 ```
