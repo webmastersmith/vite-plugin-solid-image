@@ -68,9 +68,9 @@ export default function MyComponent() {
       <h1>MyComponent</h1>
       {Images('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
 
-      <p>Multi Line Example with Template Strings</p>
-      <p>Don't accidentally add a comma to end of line</p>
-      <p>The '?' must be on same line as image path.</p>
+      <p>Multi Line Example with Template Strings.</p>
+      <p>Don't accidentally add a comma to end of a line.</p>
+      <p>The query '?' must be on same line as image path.</p>
       {Images(
         `public/phone/phone.png?
         w=50;100;150
@@ -80,7 +80,8 @@ export default function MyComponent() {
         &progressBar=true
         &print=true`
       )}
-      <p>Another Example -Art Direction</p>
+
+      <p>Art Direction</p>
       {Images([
         '/public/phone/phone.png/phone.png?w=120&f=avif;webp&media=(max-width: 500px)',
         '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
