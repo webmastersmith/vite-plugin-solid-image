@@ -44,8 +44,11 @@ async function parseFile(id: string) {
         // console.log('back', back);
         // normalize urls, remove blank strings.
         const url = imageMatch[1]
-          .replaceAll(/[^-_a-zA-Z0-9:;,=\\/&?. ]/gi, '')
-          .split(',')
+          .replaceAll(/[^-_a-zA-Z0-9:;,=\\/&?. ()\n]/gi, '')
+          .replace(/^\(/i, '')
+          .replace(/\)$/i, '')
+          .replaceAll(/,\s*?\n\s*?/gi, ',\n') // if space is after newline, remove.
+          .split(',\n') // there can be a comma in media or sizes attribute. split only after newline.
           .reduce((a: string[], b: string) => {
             // remove empty strings.
             b = b.trim();
