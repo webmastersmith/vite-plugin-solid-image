@@ -33,7 +33,8 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
   - the url can only be in string format.
     - ex.. `public/phone/phone.png?w=20;120&f=avif;webp`
   - The regex to split the url is: `,\n` (comma followed by a newline). Be careful of your formatter removing newlines when you have short lines of text.
-    - ex .. `{Images(['/public/phone/phone.png?', '/public/phone/phone.png?'])}` // will not work! Must have newline between urls.
+    - ex .. `{Images(['/public/phone.png?', '/public/phone.png?'])}`
+      - // will not work! Must have newline between urls.
 - **URL Options**
   - see: [solid-image#url-options](https://github.com/webmastersmith/solid-image#url-options)
   - **progressBar** and **print to console.log** are turned **off** by default.
