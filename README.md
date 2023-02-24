@@ -37,6 +37,7 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
       - // will not work! Must have newline between urls.
 - **URL Options**
   - see: [solid-image#url-options](https://github.com/webmastersmith/solid-image#url-options)
+  - **clean** be careful **using the same image multiple times** and turning on `clean=true`. It can delete other sizes from previous **Images** functions.
   - **progressBar** and **print to console.log** are turned **off** by default.
     - to turn on:
       - `progressBar=true`
@@ -66,7 +67,6 @@ export default function MyComponent() {
     <>
       <h1>MyComponent</h1>
       {Images('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
-
       <p>Multi Line Example with Template Strings</p>
       {/* Don't accidentally add comma to end of line  */}
       {Images(
@@ -79,14 +79,40 @@ export default function MyComponent() {
         &progressBar=true
         &print=true`
       )}
-
       <p>Another Example -Art Direction</p>
       {Images([
         '/public/phone/phone.png/phone.png?w=120&f=avif;webp&media=(max-width: 500px)',
         '/public/phone/phone.png/phone.png?w=125&f=avif;webp&media=(max-width: 1000px)',
         '/public/phone/phone.png/phone.png?w=155&f=avif;webp&media=(min-width: 1001px)',
       ])}
-    </h2>
+
+      {/*  or with template strings */}
+      {Images([
+        `/public/phone/phone.png?
+        w=500;1000
+        &a=9:16
+        &f=avif;webp
+        &sizes=500px
+        &media=(max-width: 500px) 100vw`,
+
+        `/public/phone/phone-square.png?
+        w=350;600
+        &a=3:4
+        &f=avif;webp
+        &sizes=350px
+        &media=(max-width: 700px) 50vw`,
+
+        `public/phone/phone-wide.png?
+        w=250;500;750
+        &a=16:9
+        &f=avif;webp
+        &alt=this is a image of a phone.
+        &fallbackFormat=jpg
+        &fallbackWidth=250
+        &sizes=250px
+        &media=(min-width: 1000px) 25vw`,
+      ])}
+    </>
   );
 }
 ```
