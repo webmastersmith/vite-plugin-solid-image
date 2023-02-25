@@ -54,6 +54,7 @@ async function parseFile(id: string) {
             // remove empty strings.
             b = b.replaceAll(/\n/g, ''); // remove leftover newlines
             b = b.replaceAll(/ &/g, '&'); // remove leftover spaces between query separator
+            b = b.replaceAll(/& /g, '&'); // remove leftover spaces between query separator
             b = b.replaceAll(/\? /g, '?'); // remove leftover space after query
             b = b.trim();
             if (b) {
