@@ -17,8 +17,8 @@ export function solidImage() {
 }
 
 async function parseFile(id: string) {
-  // only .jsx, .tsx files allowed.
-  if (/\.[jt]sx$/i.test(id)) {
+  // only .jsx, .tsx and astro files allowed.
+  if (/\.[jt]sx|\.astro$/i.test(id)) {
     // file is (tj)sx read it for 'Image'
     let file = fs.readFileSync(id, 'utf-8');
 
@@ -45,7 +45,7 @@ async function parseFile(id: string) {
         // normalize urls, remove blank strings.
         const url = imageMatch[1]
           .replaceAll(/ {2,}/g, ' ') // remove two spaces together.
-          .replaceAll(/[^-_a-zA-Z0-9:;,=\\/&?. ()\n]/gi, '')
+          .replaceAll(/[^-_a-zA-Z0-9:;,=\\/&?. ()\n!]/gi, '')
           .replace(/^\(/i, '')
           .replace(/\)$/i, '')
           .replaceAll(/,\s*?\n\s*?/gi, ',\n') // if space is after newline, remove.

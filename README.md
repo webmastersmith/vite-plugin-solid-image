@@ -23,6 +23,10 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
 - allowed characters -no spaces in **folder, file and Images argument** names.
 - `- _ a-z A-Z 0-9 : ; , = \ / & ? .`
 
+## Astro Example
+
+- see below 👇
+
 ## Example
 
 - This plugin only looks for `.jsx` or `.tsx` files in the `src` folder.
@@ -117,6 +121,42 @@ export default function MyComponent() {
     </>
   );
 }
+```
+
+## Astro Example
+
+**astro.config.mjs**
+
+```js
+import { defineConfig } from 'astro/config';
+import { solidImage } from 'vite-plugin-solid-image';
+
+// https://astro.build/config
+export default defineConfig({
+  vite: {
+    plugins: [solidImage()],
+  },
+});
+```
+
+**src/pages/index.astro**
+
+```astro
+---
+import Layout from '../layouts/Layout.astro';
+import Images from 'vite-plugin-solid-image';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		{Images(
+			`public/phone.png?
+			w=100;400;200
+			&f=avif;webp`
+		)}
+	</main>
+</Layout>
 ```
 
 ## Problems
