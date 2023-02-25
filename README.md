@@ -149,10 +149,12 @@ import Images from 'vite-plugin-solid-image';
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Template String & Tailwindcss Example</span></h1>
 		{Images(
 			`public/phone.png?
 			w=100;400;200
+			&c=bg-green-300 basis-1/4 !font-medium
+			&className=false
 			&f=avif;webp`
 		)}
 	</main>
