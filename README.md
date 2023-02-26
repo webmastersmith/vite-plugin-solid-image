@@ -157,7 +157,7 @@ import Images from 'vite-plugin-solid-image';
 		<h1>Template String & Tailwindcss Example</span></h1>
 		{Images(
 			`public/phone.png
-      ?w=100;400;200
+			?w=100;400;200
 			&c=bg-green-300 basis-1/4 !font-medium
 			&className=false
 			&f=avif;webp`
