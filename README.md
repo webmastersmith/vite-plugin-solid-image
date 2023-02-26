@@ -29,7 +29,7 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
 
 ## Example
 
-- This plugin only looks for `.jsx` or `.tsx` files in the `src` folder.
+- This plugin only looks for `.jsx`, `.tsx` and `.astro` files in the `src` folder.
 - **Image Location**
   - currently **only the public folder is supported**.
     - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
@@ -49,6 +49,11 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
 - **Comments**
   - `{/* {Images(...)} */}` // will not be processed.
     - because regex is used to locate the **Images** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
+- **Options**
+  - **files**
+    - array of strings you can control what file types the plugin will read.
+    - default: `.tsx, .jsx, .astro` -if you pass in files, only what you pass in will be read.
+    - `solidImage({files: ['.tsx', '.mdx']})` // only `.tsx` and `.mdx` files will be read.
 
 **vite.config.ts**
 

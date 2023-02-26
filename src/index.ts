@@ -3,22 +3,31 @@ import path from 'node:path';
 import fs from 'fs';
 export default function Images(props: string | string[]) {}
 
-export function solidImage() {
+interface Options {
+  files: string[];
+}
+export function solidImage(options?: Options) {
   return {
     name: 'vite-plugin-solid-image', // this name will show up in warnings and errors
     async load(id: string) {
       const basePath = path.join(process.cwd(), 'src');
       if (id.includes(basePath)) {
-        return await parseFile(id);
+        return await parseFile(id, options);
       }
       return;
     },
   };
 }
 
-async function parseFile(id: string) {
-  // only .jsx, .tsx and astro files allowed.
-  if (/\.[jt]sx|\.astro$/i.test(id)) {
+async function parseFile(id: string, options?: Options) {
+  // prettier-ignore
+  let filesRegex = new RegExp('(\.[jt]sx|\.astro)$', 'i');
+  if (options?.files) {
+    // prettier-ignore
+    filesRegex = new RegExp('('+options.files.join('|')+')' + '$', 'i');
+  }
+  // console.log(filesRegex);
+  if (filesRegex.test(id)) {
     // file is (tj)sx read it for 'Image'
     let file = fs.readFileSync(id, 'utf-8');
 
@@ -52,12 +61,11 @@ async function parseFile(id: string) {
           .split(',\n') // there can be a comma in media or sizes attribute. Split only after newline.
           .reduce((a: string[], b: string) => {
             // remove empty strings.
-            b = b.replaceAll(/\n/g, ''); // remove leftover newlines
-            b = b.replaceAll(/ &/g, '&'); // remove leftover spaces between query separator
-            b = b.replaceAll(/& /g, '&'); // remove leftover spaces between query separator
-            b = b.replaceAll(/\? /g, '?'); // remove leftover space after query
             b = b.trim();
             if (b) {
+              b = b.replaceAll(/\n/g, ''); // remove leftover newlines
+              b = b.replaceAll(/ &|& /g, '&'); // remove leftover spaces between query separator
+              b = b.replaceAll(/\? | \?/g, '?'); // remove leftover space after query
               a.push(b);
             }
             return a;
