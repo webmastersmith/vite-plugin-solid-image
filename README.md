@@ -41,7 +41,7 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
       - // will not work! Must have newline between urls.
 - **URL Options**
   - see: [solid-image#url-options](https://github.com/webmastersmith/solid-image#url-options)
-  - **clean** be careful **using the same image multiple times** and turning on `clean=true`. It can delete other sizes from previous **Images** functions.
+  - **clean**. Be careful **using the same image multiple times** and turning on `clean=true`. It can delete other sizes from previous **Images** functions.
   - **progressBar** and **print to console.log** are turned **off** by default.
     - to turn on:
       - `progressBar=true`
@@ -50,11 +50,11 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
   - `{/* {Images(...)} */}` // will not be processed.
     - because regex is used to locate the **Images** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
 - **Options**
-  - an object that can be passed to `solidImage` vite function.
+  - an Options object can be passed to the `solidImage` vite function.
   - **files**
     - array of strings you can control what file types the plugin will read.
     - default: `.tsx, .jsx, .astro`
-    - `solidImage({files: ['.tsx', '.mdx']})` // only `.tsx` and `.mdx` files will be read.
+    - ex.. `solidImage({files: ['.tsx', '.mdx']})` // only `.tsx` and `.mdx` files will be read.
       - The `files` property overrides the default. Only what you pass in will be read.
 
 **vite.config.ts**
@@ -80,7 +80,6 @@ export default function MyComponent() {
       {Images('/public/phone/phone.png/phone.png?w=120&f=avif;webp')}
 
       <p>Multi Line Example with Template Strings.</p>
-      <p>Don't accidentally add a comma to end of a line.</p>
       {Images(
         `public/phone/phone.png
         ?w=50;100;150
