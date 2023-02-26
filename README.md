@@ -50,10 +50,12 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
   - `{/* {Images(...)} */}` // will not be processed.
     - because regex is used to locate the **Images** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
 - **Options**
+  - an object that can be passed to `solidImage` vite function.
   - **files**
     - array of strings you can control what file types the plugin will read.
-    - default: `.tsx, .jsx, .astro` -if you pass in files, only what you pass in will be read.
+    - default: `.tsx, .jsx, .astro`
     - `solidImage({files: ['.tsx', '.mdx']})` // only `.tsx` and `.mdx` files will be read.
+      - The `files` property overrides the default. Only what you pass in will be read.
 
 **vite.config.ts**
 
@@ -79,10 +81,9 @@ export default function MyComponent() {
 
       <p>Multi Line Example with Template Strings.</p>
       <p>Don't accidentally add a comma to end of a line.</p>
-      <p>The query '?' must be on same line as image path.</p>
       {Images(
-        `public/phone/phone.png?
-        w=50;100;150
+        `public/phone/phone.png
+        ?w=50;100;150
         &f=avif
         &alt=the image of champions
         &sizes=50px
@@ -99,22 +100,22 @@ export default function MyComponent() {
 
       <p>Art Direction with template strings</p>
       {Images([
-        `/public/phone/phone.png?
-        w=500;1000
+        `/public/phone/phone.png
+        ?w=500;1000
         &a=9:16
         &f=avif;webp
         &sizes=500px
         &media=(max-width: 500px) 100vw`,
 
-        `/public/phone/phone-square.png?
-        w=350;600
+        `/public/phone/phone-square.png
+        ?w=350;600
         &a=3:4
         &f=avif;webp
         &sizes=350px
         &media=(max-width: 700px) 50vw`,
 
-        `public/phone/phone-wide.png?
-        w=250;500;750
+        `public/phone/phone-wide.png
+        ?w=250;500;750
         &a=16:9
         &f=avif;webp
         &alt=this is a image of a phone.
@@ -156,8 +157,8 @@ import Images from 'vite-plugin-solid-image';
 	<main>
 		<h1>Template String & Tailwindcss Example</span></h1>
 		{Images(
-			`public/phone.png?
-			w=100;400;200
+			`public/phone.png
+      ?w=100;400;200
 			&c=bg-green-300 basis-1/4 !font-medium
 			&className=false
 			&f=avif;webp`
@@ -171,6 +172,7 @@ import Images from 'vite-plugin-solid-image';
 ![images not defined](https://github.com/webmastersmith/vite-plugin-solid-image/blob/main/images/images-not-defined.png)
 
 - if you get this error, it is because the regex missed your **Images** function. Make sure it has the **same spacing** as the example 👆.
+- If your images are not coming out correctly, double check syntax and make sure all **`&`** and **`?`** are in place and there are no accidental commas.
 
 ## License
 
