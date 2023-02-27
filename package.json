@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-solid-image",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "description": "Use Vite and the Sharp Image Library to quickly create images and HTML code",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",

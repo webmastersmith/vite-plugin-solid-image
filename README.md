@@ -29,7 +29,8 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
 
 ## Example
 
-- This plugin only looks for `.jsx`, `.tsx` and `.astro` files in the `src` folder.
+- This plugin only looks in the `src` folder for files.
+  - See Options.entrypoint 👇.
 - **Image Location**
   - currently **only the public folder is supported**.
     - ex.. `public/phone/phone.png?w=20;120&f=avif;webp...`
@@ -51,6 +52,10 @@ ex.. `public/phone.png?w=20&f=avif&progressBar=true`
     - because regex is used to locate the **Images** function, it may still 'find' the code if it doesn't look exactly like the example 👆. Better to remove dead code and avoid problems.
 - **Options**
   - an Options object can be passed to the `solidImage` vite function.
+  - **entrypoint**
+    - main directory to look for files. Relative to `root`.
+    - default: `src`
+    - ex.. `solidImage({entrypoint: 'myFolder'})` // plugin will only look for files in the 'myFolder' directory.
   - **files**
     - array of strings you can control what file types the plugin will read.
     - default: `.tsx, .jsx, .astro`

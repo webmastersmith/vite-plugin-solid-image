@@ -5,12 +5,16 @@ export default function Images(props: string | string[]) {}
 
 interface Options {
   files: string[];
+  entrypoint?: string;
 }
 export function solidImage(options?: Options) {
   return {
     name: 'vite-plugin-solid-image', // this name will show up in warnings and errors
     async load(id: string) {
-      const basePath = path.join(process.cwd(), 'src');
+      let basePath = path.join(process.cwd(), 'src');
+      if (options?.entrypoint) {
+        basePath = path.join(process.cwd(), options.entrypoint);
+      }
       if (id.includes(basePath)) {
         return await parseFile(id, options);
       }
@@ -63,9 +67,9 @@ async function parseFile(id: string, options?: Options) {
             // remove empty strings.
             b = b.trim();
             if (b) {
-              b = b.replaceAll(/\n/g, ''); // remove leftover newlines
-              b = b.replaceAll(/ &|& /g, '&'); // remove leftover spaces between query separator
-              b = b.replaceAll(/\? | \?/g, '?'); // remove leftover space after query
+              b = b.replaceAll(/\n/g, ''); // remove leftover newlines.
+              b = b.replaceAll(/ &|& /g, '&'); // remove leftover spaces between params.
+              b = b.replaceAll(/\? | \?/g, '?'); // remove leftover space between query.
               a.push(b);
             }
             return a;
