@@ -109,14 +109,14 @@ export default function MyComponent() {
         &a=9:16
         &f=avif;webp
         &sizes=500px
-        &media=(max-width: 500px) 100vw`,
+        &media=(max-width: 500px)`,
 
         `/public/phone/phone-square.png
         ?w=350;600
         &a=3:4
         &f=avif;webp
         &sizes=350px
-        &media=(max-width: 700px) 50vw`,
+        &media=(max-width: 700px)`,
 
         `public/phone/phone-wide.png
         ?w=250;500;750
@@ -126,7 +126,7 @@ export default function MyComponent() {
         &fallbackFormat=jpg
         &fallbackWidth=250
         &sizes=250px
-        &media=(min-width: 1000px) 25vw`,
+        &media=(min-width: 1000px)`,
       ])}
     </>
   );
